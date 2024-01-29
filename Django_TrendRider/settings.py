@@ -61,7 +61,7 @@ ROOT_URLCONF = 'Django_TrendRider.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],  # 这里应该为空，除非您有全局模板目录
+        'DIRS': [],  
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -150,4 +150,3 @@ LOGGING = {
 }
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
