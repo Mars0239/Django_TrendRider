@@ -59,7 +59,7 @@ Contributions to Django TrendRider are welcome! Please read our contributing gui
 
 This project is licensed inder the MIT License.
 
-##Disclaimer
+## Disclaimer
 
 The investment advice provided by Django TrendRider is for informational purposes only and should not be construed as professional investment advice. Users are advised to conduct their own research or consult with a qualified professional before making investment decisions.
 
