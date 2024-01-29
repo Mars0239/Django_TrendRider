@@ -13,6 +13,7 @@ Live Demo: [Django TrendRider](https://django-trendrider-4848d2c6a1db.herokuapp.
 - **Investment Advice**: Provides calculated investment advice based on market analysis (Disclaimer: Advice is for informational purposes only, not intended as professional investment guidance).
 - **User-Friendly Interface**: Easy to navigate interface for both beginners and experienced traders.
 - **Responsive Design**: Fully responsive web design that works on both desktop and mobile devices.
+- **Logging for Machine Learning**: Automatically logs each session's time, investment advice given, and the volatility of selected stocks. This data collection paves the way for future enhancements by using machine learning techniques.
 
 ## Technologies
 
