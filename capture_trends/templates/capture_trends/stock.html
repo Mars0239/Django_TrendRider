@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stock Data</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+      }
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+      table, th, td {
+          border: 1px solid black;
+      }
+      th, td {
+          padding: 8px;
+          text-align: left;
+      }
+      th {
+          background-color: #f2f2f2;
+      }
+      td {
+          background-color: #f9f9f9;
+      }
+  </style>
+</head>
+<body>
+  <h1>Stock Market Probabilities</h1>
+  <div id="data-container">
+      <!-- Data will be displayed here -->
+  </div>
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          fetch('/stocks/data/')
+          .then(response => response.json())
+          .then(data => {
+              const container = document.getElementById('data-container');
+              const changes = data.changes;
+              const probabilities = data.probabilities;
+              const advice = data.advice;  // 添加投资建议
+               let content = '<table>';
+              content += '<tr><th>Ticker</th><th>Change</th></tr>';
+              for (const [ticker, change] of Object.entries(changes)) {
+                  content += `<tr><td>${ticker}</td><td>${(change * 100).toFixed(2)}%</td></tr>`;
+              }
+              content += '</table>';
+               // 添加概率
+              content += `<p>Up Probability: ${(probabilities.up * 100).toFixed(2)}%</p>`;
+              content += `<p>Down Probability: ${(probabilities.down * 100).toFixed(2)}%</p>`;
+              content += `<p>Flat Probability: ${(probabilities.flat * 100).toFixed(2)}%</p>`;
+               // 显示投资建议
+              content += `<p><strong>Investment Advice: ${advice}</strong></p>`;
+               container.innerHTML = content;
+          })
+          .catch(error => {
+              console.error('Error fetching data: ', error);
+              container.innerHTML = `<p>Error fetching data: ${error}</p>`;
+          });
+      });
+  </script>
+</body>
+</html>
